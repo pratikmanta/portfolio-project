@@ -8,7 +8,8 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>pratikmanta</title>
+
+  <title>pratikblogs</title>
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
@@ -24,43 +25,29 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-          <a class="nav-item nav-link" href="https://www.linkedin.com/in/pratikmanta/">LinkedIn</a>
-          <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blogs</a>
+          <a class="nav-item nav-link" href=""https://www.linkedin.com/in/pratikmanta/"">LinkedIn</a>
+          <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blogs</a>
           <a class="nav-item nav-link" href="{% static 'first-resume.txt' %}">Resume</a>
         </div>
       </div>
     </nav>
   </header>
   <main role="main">
-    <img src="{% static 'pratik.jpg'%}" align ='left' height="250" width='250' />
-    <section class="jumbotron text-center">
-      <div class="container">
-        <h1 class="jumbotron-heading">Hi, I'm Pratik</h1>
-        <p class="lead text-muted">I am an aspiring game designer </p>
-        <p>
-          <a href="mailto:pratik.manta10@gmail.com" class="btn btn-primary my-2">Email Me</a>
-        </p>
-      </div>
-    </section>
+    <div class="container">
 
-    <div class="album py-5 bg-light">
-      <div class="container">
-
-        {% for job in jobs.all %}
-        <div class="row">
-          <div class="col-md-2">
-            <div class="card mb-4 box-dark">
-              <img class="card-img-top" src ="{{ job.image.url }}" />
-              <div class="card-body">
-                <p class="card-text">{{ job.summary }}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
+      <h1 class="text-center pt-2">Welcome to my Blogs</h1>
+      <br />
+      <br />
+      <h2>Latest Articles </h2>
+      <hr />
+      {% for blog in blogs.all %}
+      <a href="{% url 'detail' blog.id %}"><h4>{{ blog.title }}</h4></a>
+      {{ blog.pub_date_pretty }}
+      <br />
+      <img class="img-fluid" src = "{{ blog.image.url }}" height=50 width=50/>
+      <p>{{ blog.summary }}</p>
+      {% endfor %}
     </div>
-
   </main>
 
   <footer class="text-muted">
