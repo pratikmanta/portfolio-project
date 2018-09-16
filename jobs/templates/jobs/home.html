@@ -32,24 +32,26 @@
     </nav>
   </header>
   <main role="main">
-    <img src="{% static 'pratik.jpg'%}" align ='left' height="250" width='250' />
+    <img src="{% static 'pratik.jpg'%}" class="rounded-circle mb-2 p-2" align ='left' height="330" width='330' />
     <section class="jumbotron text-center">
       <div class="container">
         <h1 class="jumbotron-heading">Hi, I'm Pratik</h1>
-        <p class="lead text-muted">I am an aspiring game designer </p>
+        <p class="lead text-muted"><em><strong>"I am an aspiring web developer with a passion for game designing<br>but what i enjoy the most
+        is playing around with code that opens up a world to new possibilities."</strong></em></p>
         <p>
           <a href="mailto:pratik.manta10@gmail.com" class="btn btn-primary my-2">Email Me</a>
         </p>
       </div>
     </section>
-
+    <h1 class="" align="center">My Work</h1>
+<hr>
     <div class="album py-5 bg-light">
       <div class="container">
 
         {% for job in jobs.all %}
         <div class="row">
-          <div class="col-md-2">
-            <div class="card mb-4 box-dark">
+          <div class="col-md-2" stu>
+            <div class="card mb-4 box-dark" style="width:300px">
               <img class="card-img-top" src ="{{ job.image.url }}" />
               <div class="card-body">
                 <p class="card-text">{{ job.summary }}</p>
@@ -60,13 +62,12 @@
         {% endfor %}
       </div>
     </div>
-
   </main>
 
   <footer class="text-muted">
     <div class="container text-center">
       <p>
-         © Pratik Manta {%  now "Y" %}
+         <strong>© Pratik Manta {%  now "Y" %}</strong>
       </p>
     </div>
   </footer>

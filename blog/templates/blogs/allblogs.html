@@ -25,35 +25,35 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-          <a class="nav-item nav-link" href=""https://www.linkedin.com/in/pratikmanta/"">LinkedIn</a>
+          <a class="nav-item nav-link" href="https://www.linkedin.com/in/pratikmanta/">LinkedIn</a>
           <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blogs</a>
-          <a class="nav-item nav-link" href="{% static 'resume_A.pdf' %}">Resume</a>
+          <a class="nav-item nav-link" href="{% static 'pratik-cv.pdf' %}">Resume</a>
         </div>
       </div>
     </nav>
   </header>
   <main role="main">
+    <div class="rounded m-3 p-3 mb-2 bg-dark text-white"><h1>Welcome to my Blogs</h1></div>
     <div class="container">
-
-      <h1 class="text-center pt-2">Welcome to my Blogs</h1>
-      <br />
-      <br />
-      <h2>Latest Articles </h2>
-      <hr />
-      {% for blog in blogs.all %}
-      <a href="{% url 'detail' blog.id %}"><h4>{{ blog.title }}</h4></a>
-      {{ blog.pub_date_pretty }}
-      <br />
-      <img class="img-fluid" src = "{{ blog.image.url }}" height=50 width=50/>
-      <p>{{ blog.summary }}</p>
-      {% endfor %}
+        <br />
+        <br />
+        <h2>Latest Articles </h2>
+        <hr />
+      <div>
+        {% for blog in blogs.all %}
+        <a href="{% url 'detail' blog.id %}"><h4><em>{{ blog.title }}</em></h4></a>
+        <p><strong><em>{{ blog.pub_date_pretty }}</em></strong></p>
+        <a href="{% url 'detail' blog.id %}"><img class="img-fluid" src = "{{ blog.image.url }}" height=300 width=300/></a>
+        <p class="mt-1">{{ blog.summary }}</p>
+        {% endfor %}
+      </div>
     </div>
   </main>
 
   <footer class="text-muted">
     <div class="container text-center">
       <p>
-         © Pratik Manta {%  now "Y" %}
+         <strong>© Pratik Manta {%  now "Y" %}</strong>
       </p>
     </div>
   </footer>
