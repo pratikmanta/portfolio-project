@@ -32,21 +32,22 @@
       </div>
     </nav>
   </header>
-  <main role="main">
-    <div class container>
-      <br />
+  <hr class="w-25 border-dark">
 
-      <figure class="figure m-2">
-        <img class="figure-img img-fluid rounded" src="{{ blogs.image.url }}" align=center height=400 width=400/>
-      </figure>
 
-      <hr>
-      <div class="bg-dark text-light card m-2 p-4" >
-        <h5 class="card-header bg-light text-dark text-center">{{blogs.title}}<br><em>{{blogs.pub_date_pretty}}</em></h5>
-        <p class="m-2 p-2 text-justify">{{ blogs.body|linebreaks }}</p>
+    <div class="container">
+      <img src="{{ jobs.image.url }}" class="m-2 rounded mx-auto d-block" alt="Responsive image" width="700" height="400">
+      <hr class="w-25 border-dark">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">{{jobs.title}}</h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text">{{jobs.summary}}</p>
+        </div>
       </div>
     </div>
-  </main>
+
 
   <footer class="text-muted">
     <div class="container text-center">

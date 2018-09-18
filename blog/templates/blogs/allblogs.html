@@ -25,7 +25,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-          <a class="nav-item nav-link" href="https://www.linkedin.com/in/pratikmanta/">LinkedIn</a>
+          <a class="nav-item nav-link" href="https://github.com/pratikmanta">Github</a>
           <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blogs</a>
           <a class="nav-item nav-link" href="{% static 'pratik-cv.pdf' %}">Resume</a>
         </div>
@@ -34,17 +34,17 @@
   </header>
   <main role="main">
     <div class="rounded m-3 p-3 mb-2 bg-dark text-white"><h1>Welcome to my Blogs</h1></div>
+    <br>
+    <br>
+    <h1 class="text-center">Latest Articles </h1>
+    <hr />
     <div class="container">
-        <br />
-        <br />
-        <h2>Latest Articles </h2>
-        <hr />
       <div>
         {% for blog in blogs.all %}
-        <a href="{% url 'detail' blog.id %}"><h4><em>{{ blog.title }}</em></h4></a>
+        <h4 style="cursor:pointer;" onclick=" window.location = '{% url 'detail' blog.id %}'; "><em>{{ blog.title }}</em></h4></a>
         <p><strong><em>{{ blog.pub_date_pretty }}</em></strong></p>
         <a href="{% url 'detail' blog.id %}"><img class="img-fluid" src = "{{ blog.image.url }}" height=300 width=300/></a>
-        <p class="mt-1">{{ blog.summary }}</p>
+        <p class="mt-1">{{ blog.summary }}.... <a href="{% url 'detail' blog.id %}">Read More</a></p>
         {% endfor %}
       </div>
     </div>
