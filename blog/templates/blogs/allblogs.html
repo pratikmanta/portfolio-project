@@ -7,13 +7,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-
-
   <title>pratikblogs</title>
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 </head>
+<style media="screen">
+      body {
+        overflow: auto;
+        background-image: url('https://images.pexels.com/photos/159417/macbook-laptop-computer-technology-159417.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+        background-size:cover;
+        background-position: center;
+      }
+</style>
 
 <body>
 
@@ -41,10 +47,10 @@
     <div class="container">
       <div>
         {% for blog in blogs.all %}
-        <h4 style="cursor:pointer;" onclick=" window.location = '{% url 'detail' blog.id %}'; "><em>{{ blog.title }}</em></h4></a>
-        <p><strong><em>{{ blog.pub_date_pretty }}</em></strong></p>
-        <a href="{% url 'detail' blog.id %}"><img class="img-fluid" src = "{{ blog.image.url }}" height=300 width=300/></a>
-        <p class="mt-1">{{ blog.summary }}.... <a href="{% url 'detail' blog.id %}">Read More</a></p>
+        <div class="bg-dark text-light border rounded p-1 mb-3"><h4 style="cursor:pointer;" onclick=" window.location = '{% url 'detail' blog.id %}'; "><em>{{ blog.title }}</em></h4></a>
+        <p><strong><em>{{ blog.pub_date_pretty }}</em></strong></p></div>
+        <a href="{% url 'detail' blog.id %}"><img class="img-fluid" src = "{{ blog.image.url }}" align="center" height=300 width=300/></a>
+        <strong><p class="mt-1">{{ blog.summary }}.... <a href="{% url 'detail' blog.id %}">Read More</a></p></strong>
         {% endfor %}
       </div>
     </div>
